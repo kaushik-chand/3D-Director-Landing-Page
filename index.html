@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAI MORI — Director</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div id="loader-name">Kai Mori — Director</div>
+  <div id="loader-bar"><div id="loader-fill"></div></div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" id="nav-logo">Kai <span>Mori</span></a>
+  <div id="nav-links">
+    <a class="active" onclick="flyToZone(0); return false;">Work</a>
+    <a onclick="flyToZone(1); return false;">Film</a>
+    <a onclick="flyToZone(2); return false;">Visual</a>
+    <a onclick="flyToZone(3); return false;">Narrative</a>
+    <a onclick="flyToZone(4); return false;">Experimental</a>
+  </div>
+  <div id="nav-links-page">
+    <a href="#about-section">About</a>
+    <a href="#work-section">Projects</a>
+    <a href="#contact-section">Contact</a>
+  </div>
+  <div id="nav-right">
+    <a href="#">IG</a>
+    <a href="#">Vimeo</a>
+    <button class="nav-btn" onclick="openAbout()">About</button>
+  </div>
+</nav>
+
+<!-- 3D HERO STUDIO -->
+<section id="hero">
+  <div id="hero-text">
+    <h1>Debut<br><em>Director</em></h1>
+    <p>Moving Image · Visual Storytelling · 2026</p>
+  </div>
+
+  <div id="zone-indicator">
+    <div class="zone-dot active" onclick="flyToZone(0)" title="Work"></div>
+    <div class="zone-dot" onclick="flyToZone(1)" title="Film"></div>
+    <div class="zone-dot" onclick="flyToZone(2)" title="Visual"></div>
+    <div class="zone-dot" onclick="flyToZone(3)" title="Narrative"></div>
+    <div class="zone-dot" onclick="flyToZone(4)" title="Experimental"></div>
+  </div>
+
+  <div id="char-panel">
+    <button class="action-btn" onclick="triggerAnim('wave')">👋 Wave</button>
+    <button class="action-btn" onclick="triggerAnim('point')">👉 Point</button>
+    <button class="action-btn" onclick="triggerAnim('bow')">🙇 Bow</button>
+  </div>
+
+  <div id="controls-hud">
+    <div><kbd>drag</kbd> Orbit</div>
+    <div><kbd>scroll</kbd> Zoom</div>
+    <div><kbd>right drag</kbd> Pan</div>
+    <div><kbd>1–5</kbd> Zones</div>
+  </div>
+
+  <div id="cards-container"></div>
+  <div id="canvas-container"></div>
+
+  <a href="#about-section" id="scroll-hint">
+    <span>Explore</span>
+    <span class="scroll-line"></span>
+  </a>
+</section>
+
+<!-- LANDING PAGE -->
+<main id="landing">
+  <section id="about-section" class="landing-section scene-3d reveal">
+    <p class="section-label">Director</p>
+    <h2 class="section-title">Frames that<br><em>hold weight</em></h2>
+    <div class="about-grid">
+      <div class="about-copy">
+        <p class="section-lead">Kai Mori is a debut feature film director working between Tokyo and Los Angeles — trained at AFI, shaping stories through stillness, movement, and visual rhythm.</p>
+        <p>From narrative shorts on 35mm to branded films and experimental installations, the work sits at the intersection of cinema, fashion, and the moving image.</p>
+        <div class="about-stats">
+          <div class="stat-block"><strong>12+</strong><span>Projects Directed</span></div>
+          <div class="stat-block"><strong>5</strong><span>Years in Film</span></div>
+          <div class="stat-block"><strong>2</strong><span>Cities — TYO / LA</span></div>
+        </div>
+        <div class="disciplines">
+          <span class="discipline-pill">Narrative Film</span>
+          <span class="discipline-pill">Branded Content</span>
+          <span class="discipline-pill">Music Video</span>
+          <span class="discipline-pill">Commercial</span>
+          <span class="discipline-pill">Installation</span>
+        </div>
+      </div>
+      <div class="about-visual">
+        <img
+          class="about-photo"
+          src="assets/images/about-cinematography.jpg"
+          alt="Cinematography on set"
+          loading="lazy"
+          width="900"
+          height="600"
+        >
+      </div>
+    </div>
+  </section>
+
+  <section id="work-section" class="landing-section reveal">
+    <p class="section-label">Selected Work</p>
+    <h2 class="section-title">Recent<br><em>projects</em></h2>
+    <p class="section-lead">Explore the 3D studio above, or browse the full catalogue below. Click any card for details.</p>
+    <div class="work-grid" id="work-grid"></div>
+  </section>
+
+  <section id="process-section" class="landing-section scene-3d reveal">
+    <p class="section-label">Approach</p>
+    <h2 class="section-title">From script<br><em>to screen</em></h2>
+    <p class="section-lead">A disciplined process rooted in pre-visualization, collaboration on set, and meticulous post — every frame intentional.</p>
+    <div class="process-steps">
+      <div class="process-step" style="--step-img: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=700&auto=format&fit=crop&q=80')">
+        <div class="process-num">01</div>
+        <h3>Develop</h3>
+        <p>Treatment, mood boards, and spatial pre-vis. Story and world-building before a single frame is shot.</p>
+      </div>
+      <div class="process-step" style="--step-img: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=700&auto=format&fit=crop&q=80')">
+        <div class="process-num">02</div>
+        <h3>Shoot</h3>
+        <p>On set with cinematography partners. Blocking, lensing, and performance shaped in real time.</p>
+      </div>
+      <div class="process-step" style="--step-img: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&auto=format&fit=crop&q=80')">
+        <div class="process-num">03</div>
+        <h3>Shape</h3>
+        <p>Edit, grade, and sound design. Rhythm and silence treated as equal partners in the cut.</p>
+      </div>
+      <div class="process-step" style="--step-img: url('https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=700&auto=format&fit=crop&q=80')">
+        <div class="process-num">04</div>
+        <h3>Release</h3>
+        <p>Festival strategy, platform delivery, and installation installs for gallery and brand partners.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="recognition-section" class="landing-section reveal">
+    <p class="section-label">Recognition</p>
+    <h2 class="section-title">Festivals &<br><em>awards</em></h2>
+    <div class="awards-list">
+      <div class="award-row">
+        <span class="award-year">2026</span>
+        <div>
+          <h3>Sundance — New Voices</h3>
+          <p>Kusa no Umi — Short Film</p>
+        </div>
+        <span class="award-badge">Winner</span>
+      </div>
+      <div class="award-row">
+        <span class="award-year">2025</span>
+        <div>
+          <h3>Cannes Lions — Film Craft</h3>
+          <p>Silence/Noise — Branded Film</p>
+        </div>
+        <span class="award-badge">Gold</span>
+      </div>
+      <div class="award-row">
+        <span class="award-year">2026</span>
+        <div>
+          <h3>Clermont-Ferrand</h3>
+          <p>Neon Tides — Official Selection</p>
+        </div>
+        <span class="award-badge">Official</span>
+      </div>
+      <div class="award-row">
+        <span class="award-year">2025</span>
+        <div>
+          <h3>Tokyo International</h3>
+          <p>Kinetic Forms — Competition</p>
+        </div>
+        <span class="award-badge">Nominee</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact-section" class="landing-section scene-3d reveal">
+    <p class="section-label">Collaborate</p>
+    <h2 class="section-title">Let's make<br><em>something</em></h2>
+    <div class="contact-grid">
+      <div class="contact-panel-3d" style="--panel-img: url('https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=800&auto=format&fit=crop&q=80')">
+        <h3>Available for 2026</h3>
+        <p>Feature development, branded films, music videos, and gallery installations. Based between Tokyo and Los Angeles — open to travel.</p>
+        <a href="mailto:hello@kaimori.film" class="contact-email">hello@kaimori.film</a>
+        <div class="contact-links">
+          <a href="#">Instagram</a>
+          <a href="#">Vimeo</a>
+          <a href="#">Letterboxd</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="return handleContactSubmit(event)">
+        <div class="field">
+          <label for="contact-name">Name</label>
+          <input type="text" id="contact-name" name="name" required placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="contact-email-input">Email</label>
+          <input type="email" id="contact-email-input" name="email" required placeholder="you@studio.com">
+        </div>
+        <div class="field">
+          <label for="contact-message">Project</label>
+          <textarea id="contact-message" name="message" required placeholder="Tell me about your project…"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send inquiry</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-logo">Kai <span>Mori</span></div>
+  <p>© 2026 Kai Mori. All rights reserved.</p>
+  <a href="#hero" class="footer-back-top">Back to studio ↑</a>
+</footer>
+
+<!-- ABOUT MODAL -->
+<div id="about-modal">
+  <div id="about-content">
+    <h2>Kai <span>Mori</span></h2>
+    <p>Debut feature film director based between Tokyo and Los Angeles. Trained at AFI, working across narrative film, branded content, and visual art.</p>
+    <p>Interested in the intersection of stillness and movement — how a single frame can carry the weight of an entire story.</p>
+    <p>Available for collaboration, commissions, and conversation.</p>
+    <button class="close-btn" onclick="closeAbout()">Close</button>
+  </div>
+</div>
+
+<!-- PROJECT MODAL -->
+<div id="proj-modal">
+  <div id="proj-content">
+    <img id="pm-image" class="proj-modal-img" src="" alt="" hidden>
+    <div class="proj-tag" id="pm-tag"></div>
+    <h2 id="pm-title"></h2>
+    <p id="pm-desc"></p>
+    <div class="meta">
+      <div><strong id="pm-year"></strong>Year</div>
+      <div><strong id="pm-role"></strong>Role</div>
+      <div><strong id="pm-format"></strong>Format</div>
+    </div>
+    <button class="close-btn" onclick="closeProj()">Close</button>
+  </div>
+</div>
+
+<!-- THREE.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ─────────────────────────────────────────────
+//  SCENE SETUP
+// ─────────────────────────────────────────────
+const container = document.getElementById('canvas-container');
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.1;
+container.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x080810);
+scene.fog = new THREE.FogExp2(0x080810, 0.022);
+
+const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 200);
+camera.position.set(0, 4, 18);
+camera.lookAt(0, 1, 0);
+
+// ─────────────────────────────────────────────
+//  LIGHTS
+// ─────────────────────────────────────────────
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+scene.add(ambientLight);
+
+const keyLight = new THREE.DirectionalLight(0xffffff, 1.4);
+keyLight.position.set(8, 14, 8);
+keyLight.castShadow = true;
+keyLight.shadow.mapSize.set(2048, 2048);
+keyLight.shadow.camera.near = 0.1;
+keyLight.shadow.camera.far = 60;
+keyLight.shadow.camera.left = -20; keyLight.shadow.camera.right = 20;
+keyLight.shadow.camera.top = 20; keyLight.shadow.camera.bottom = -20;
+scene.add(keyLight);
+
+const fillLight = new THREE.DirectionalLight(0x8899ff, 0.5);
+fillLight.position.set(-10, 6, -4);
+scene.add(fillLight);
+
+const rimLight = new THREE.DirectionalLight(0xe8ff47, 0.8);
+rimLight.position.set(0, 8, -12);
+scene.add(rimLight);
+
+// accent point lights
+const accentColors = [0xe8ff47, 0xff4488, 0x44aaff, 0xff8833, 0x33ffcc];
+const accentLights = [];
+accentColors.forEach((c, i) => {
+  const pl = new THREE.PointLight(c, 1.2, 12);
+  const angle = (i / accentColors.length) * Math.PI * 2;
+  pl.position.set(Math.cos(angle) * 14, 3, Math.sin(angle) * 14);
+  scene.add(pl);
+  accentLights.push(pl);
+});
+
+// ─────────────────────────────────────────────
+//  FLOOR
+// ─────────────────────────────────────────────
+const floorGeo = new THREE.PlaneGeometry(80, 80, 40, 40);
+const floorMat = new THREE.MeshStandardMaterial({
+  color: 0x0d0d18,
+  roughness: 0.8,
+  metalness: 0.2,
+  wireframe: false
+});
+const floor = new THREE.Mesh(floorGeo, floorMat);
+floor.rotation.x = -Math.PI / 2;
+floor.receiveShadow = true;
+scene.add(floor);
+
+// Grid lines
+const gridHelper = new THREE.GridHelper(80, 40, 0x1a1a2e, 0x1a1a2e);
+gridHelper.position.y = 0.01;
+scene.add(gridHelper);
+
+// ─────────────────────────────────────────────
+//  PROJECTS DATA
+// ─────────────────────────────────────────────
+const PROJECTS = [
+  {
+    tag: 'Short Film', title: 'Kusa no Umi', year: '2026', role: 'Director/Writer',
+    format: '35mm', color: 0xe8ff47,
+    desc: 'A meditative short following an elderly fisherman across the tidal flats of Kagoshima. Winner, Sundance New Voices.',
+    pos: [-5, 0, 2],
+    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&auto=format&fit=crop&q=80'
+  },
+  {
+    tag: 'Branded Film', title: 'Silence/Noise', year: '2025', role: 'Director',
+    format: '4K Digital', color: 0xff4488,
+    desc: 'A brand film for Issey Miyake exploring the duality between urban noise and interior stillness through fashion.',
+    pos: [5, 0, 2],
+    image: 'assets/images/silence-noise.jpg'
+  },
+  {
+    tag: 'Music Video', title: 'Neon Tides', year: '2026', role: 'Director/DoP',
+    format: 'Anamorphic 2.35', color: 0x44aaff,
+    desc: 'Music video for artist Hana Yuki. A surrealist journey through a city that only exists at 3am.',
+    pos: [-12, 0, -5],
+    image: 'https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&auto=format&fit=crop&q=80'
+  },
+  {
+    tag: 'Commercial', title: 'Kinetic Forms', year: '2025', role: 'Director',
+    format: 'High Speed', color: 0xff8833,
+    desc: 'High-speed beauty campaign for SHISEIDO exploring transformation through kinetic abstraction.',
+    pos: [12, 0, -5],
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80'
+  },
+  {
+    tag: 'Experimental', title: 'Loop Eternal', year: '2026', role: 'Director/Editor',
+    format: '16mm Loop', color: 0x33ffcc,
+    desc: 'Single-channel video installation. 16mm footage of tide cycles layered with archival family recordings.',
+    pos: [0, 0, -14],
+    image: 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800&auto=format&fit=crop&q=80'
+  }
+];
+
+// ─────────────────────────────────────────────
+//  SCREEN PANELS (project displays)
+// ─────────────────────────────────────────────
+function drawProjectScreen(ctx, proj, photo) {
+  const w = 512, h = 320;
+  ctx.fillStyle = '#0d0d1a';
+  ctx.fillRect(0, 0, w, h);
+
+  if (photo && photo.complete && photo.naturalWidth) {
+    const scale = Math.max(w / photo.naturalWidth, h / photo.naturalHeight);
+    const dw = photo.naturalWidth * scale;
+    const dh = photo.naturalHeight * scale;
+    ctx.drawImage(photo, (w - dw) / 2, (h - dh) / 2, dw, dh);
+    const grad = ctx.createLinearGradient(0, 0, 0, h);
+    grad.addColorStop(0, 'rgba(8,8,16,0.35)');
+    grad.addColorStop(0.55, 'rgba(8,8,16,0.5)');
+    grad.addColorStop(1, 'rgba(8,8,16,0.92)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, w, h);
+  } else {
+    ctx.save();
+    ctx.globalAlpha = 0.12;
+    const col = '#' + proj.color.toString(16).padStart(6, '0');
+    for (let r = 0; r < 6; r++) {
+      ctx.beginPath();
+      ctx.arc(256, 160, 40 + r * 30, 0, Math.PI * 2);
+      ctx.strokeStyle = col;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  const accent = '#' + proj.color.toString(16).padStart(6, '0');
+  ctx.fillStyle = accent;
+  ctx.fillRect(0, 0, w, 8);
+
+  ctx.fillStyle = accent;
+  ctx.font = '500 18px "Helvetica Neue", sans-serif';
+  ctx.fillText(proj.tag.toUpperCase(), 28, 60);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '800 46px "Helvetica Neue", sans-serif';
+  ctx.fillText(proj.title, 28, 130);
+
+  ctx.font = '400 16px "Helvetica Neue", sans-serif';
+  ctx.fillStyle = 'rgba(255,255,255,0.55)';
+  const words = proj.desc.split(' ');
+  let line = '', y = 175;
+  for (let word of words) {
+    const test = line + word + ' ';
+    if (ctx.measureText(test).width > 460 && line) {
+      ctx.fillText(line, 28, y); line = word + ' '; y += 22;
+    } else { line = test; }
+    if (y > 250) break;
+  }
+  if (line) ctx.fillText(line, 28, y);
+
+  ctx.fillStyle = 'rgba(255,255,255,0.35)';
+  ctx.font = '400 14px "Helvetica Neue", sans-serif';
+  ctx.fillText(proj.year + ' · ' + proj.format, 28, 298);
+}
+
+const panels = [];
+PROJECTS.forEach((proj, i) => {
+  const group = new THREE.Group();
+  group.position.set(proj.pos[0], 0, proj.pos[2]);
+  group.userData = { proj, index: i };
+
+  const pedGeo = new THREE.BoxGeometry(0.5, 1.8, 0.5);
+  const pedMat = new THREE.MeshStandardMaterial({ color: 0x111120, roughness: 0.5, metalness: 0.7 });
+  const ped = new THREE.Mesh(pedGeo, pedMat);
+  ped.position.y = 0.9;
+  ped.castShadow = true;
+  ped.receiveShadow = true;
+  group.add(ped);
+
+  const screenGeo = new THREE.BoxGeometry(3.2, 2.0, 0.08);
+  const canvas = document.createElement('canvas');
+  canvas.width = 512; canvas.height = 320;
+  const ctx = canvas.getContext('2d');
+  const tex = new THREE.CanvasTexture(canvas);
+  const screenMat = new THREE.MeshStandardMaterial({
+    map: tex, roughness: 0.2, metalness: 0.3,
+    emissive: new THREE.Color(proj.color), emissiveIntensity: 0.08
+  });
+  const screen = new THREE.Mesh(screenGeo, screenMat);
+  screen.position.y = 2.8;
+  screen.castShadow = true;
+  group.add(screen);
+
+  const photo = new Image();
+  if (/^https?:\/\//i.test(proj.image)) photo.crossOrigin = 'anonymous';
+  const refreshScreen = () => {
+    drawProjectScreen(ctx, proj, photo);
+    tex.needsUpdate = true;
+  };
+  photo.onload = refreshScreen;
+  photo.onerror = refreshScreen;
+  photo.src = proj.image;
+  refreshScreen();
+
+  const ringGeo = new THREE.TorusGeometry(0.25, 0.03, 8, 32);
+  const ringMat = new THREE.MeshStandardMaterial({ color: proj.color, emissive: proj.color, emissiveIntensity: 0.8, roughness: 0.3 });
+  const ring = new THREE.Mesh(ringGeo, ringMat);
+  ring.position.y = 1.85;
+  group.add(ring);
+
+  scene.add(group);
+  panels.push({ group, screen, ring, proj });
+});
+
+// ─────────────────────────────────────────────
+//  CHARACTER RIG (stylised figure)
+// ─────────────────────────────────────────────
+const charGroup = new THREE.Group();
+charGroup.position.set(0, 0, 5);
+scene.add(charGroup);
+
+const charMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.4, metalness: 0.1 });
+const darkMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.5, metalness: 0.2 });
+const accentMat = new THREE.MeshStandardMaterial({ color: 0xe8ff47, roughness: 0.3, metalness: 0.2, emissive: 0xe8ff47, emissiveIntensity: 0.3 });
+
+// Body parts
+const bodyParts = {};
+
+// Torso
+const torsoGeo = new THREE.BoxGeometry(0.7, 0.9, 0.35);
+bodyParts.torso = new THREE.Mesh(torsoGeo, charMat);
+bodyParts.torso.position.y = 1.65;
+bodyParts.torso.castShadow = true;
+charGroup.add(bodyParts.torso);
+
+// Hips
+const hipsGeo = new THREE.BoxGeometry(0.65, 0.35, 0.32);
+bodyParts.hips = new THREE.Mesh(hipsGeo, darkMat);
+bodyParts.hips.position.y = 1.17;
+bodyParts.hips.castShadow = true;
+charGroup.add(bodyParts.hips);
+
+// Head
+const headGeo = new THREE.BoxGeometry(0.45, 0.45, 0.4);
+bodyParts.head = new THREE.Mesh(headGeo, charMat);
+bodyParts.head.position.y = 2.38;
+bodyParts.head.castShadow = true;
+charGroup.add(bodyParts.head);
+
+// Neck
+const neckGeo = new THREE.CylinderGeometry(0.1, 0.12, 0.18, 8);
+bodyParts.neck = new THREE.Mesh(neckGeo, charMat);
+bodyParts.neck.position.y = 2.14;
+charGroup.add(bodyParts.neck);
+
+// Eyes
+const eyeGeo = new THREE.BoxGeometry(0.08, 0.06, 0.06);
+const eyeMat = new THREE.MeshStandardMaterial({ color: 0x0a0a0a });
+[-0.1, 0.1].forEach(x => {
+  const eye = new THREE.Mesh(eyeGeo, eyeMat);
+  eye.position.set(x, 2.4, 0.21);
+  charGroup.add(eye);
+});
+
+// Accent stripe on torso
+const stripeGeo = new THREE.BoxGeometry(0.08, 0.7, 0.36);
+const stripe = new THREE.Mesh(stripeGeo, accentMat);
+stripe.position.set(-0.25, 1.65, 0.001);
+charGroup.add(stripe);
+
+// Arms (pivot groups)
+const armPivotL = new THREE.Group(); armPivotL.position.set(-0.45, 2.1, 0); charGroup.add(armPivotL);
+const armPivotR = new THREE.Group(); armPivotR.position.set(0.45, 2.1, 0); charGroup.add(armPivotR);
+
+const upperArmGeo = new THREE.BoxGeometry(0.2, 0.6, 0.2);
+const lowerArmGeo = new THREE.BoxGeometry(0.18, 0.55, 0.18);
+const handGeo = new THREE.BoxGeometry(0.2, 0.22, 0.12);
+
+function buildArm(pivot, side) {
+  const upper = new THREE.Mesh(upperArmGeo, charMat); upper.castShadow = true;
+  upper.position.set(0, -0.32, 0); pivot.add(upper);
+
+  const elbowPivot = new THREE.Group(); elbowPivot.position.set(0, -0.64, 0); pivot.add(elbowPivot);
+  const lower = new THREE.Mesh(lowerArmGeo, charMat); lower.castShadow = true;
+  lower.position.set(0, -0.28, 0); elbowPivot.add(lower);
+
+  const handP = new THREE.Group(); handP.position.set(0, -0.56, 0); elbowPivot.add(handP);
+  const hand = new THREE.Mesh(handGeo, charMat); hand.castShadow = true;
+  hand.position.set(0, -0.11, 0); handP.add(hand);
+
+  return { pivot, elbowPivot, handP };
+}
+bodyParts.armL = buildArm(armPivotL, -1);
+bodyParts.armR = buildArm(armPivotR, 1);
+
+// Legs
+const legPivotL = new THREE.Group(); legPivotL.position.set(-0.19, 1.0, 0); charGroup.add(legPivotL);
+const legPivotR = new THREE.Group(); legPivotR.position.set(0.19, 1.0, 0); charGroup.add(legPivotR);
+
+const upperLegGeo = new THREE.BoxGeometry(0.25, 0.55, 0.25);
+const lowerLegGeo = new THREE.BoxGeometry(0.22, 0.52, 0.22);
+const footGeo = new THREE.BoxGeometry(0.24, 0.12, 0.38);
+
+function buildLeg(pivot) {
+  const upper = new THREE.Mesh(upperLegGeo, darkMat); upper.castShadow = true;
+  upper.position.set(0, -0.28, 0); pivot.add(upper);
+
+  const kneePivot = new THREE.Group(); kneePivot.position.set(0, -0.56, 0); pivot.add(kneePivot);
+  const lower = new THREE.Mesh(lowerLegGeo, darkMat); lower.castShadow = true;
+  lower.position.set(0, -0.26, 0); kneePivot.add(lower);
+
+  const footP = new THREE.Group(); footP.position.set(0, -0.52, 0); kneePivot.add(footP);
+  const foot = new THREE.Mesh(footGeo, accentMat); foot.castShadow = true;
+  foot.position.set(0, -0.06, 0.04); footP.add(foot);
+
+  return { pivot, kneePivot, footP };
+}
+bodyParts.legL = buildLeg(legPivotL);
+bodyParts.legR = buildLeg(legPivotR);
+
+// ─────────────────────────────────────────────
+//  ENVIRONMENT OBJECTS
+// ─────────────────────────────────────────────
+
+// Central platform
+const platGeo = new THREE.CylinderGeometry(2.5, 2.6, 0.15, 32);
+const platMat = new THREE.MeshStandardMaterial({ color: 0x141425, roughness: 0.4, metalness: 0.6 });
+const platform = new THREE.Mesh(platGeo, platMat);
+platform.position.y = 0.075;
+platform.receiveShadow = true;
+scene.add(platform);
+
+// Ring accent on platform
+const platRingGeo = new THREE.TorusGeometry(2.5, 0.04, 8, 64);
+const platRingMat = new THREE.MeshStandardMaterial({ color: 0xe8ff47, emissive: 0xe8ff47, emissiveIntensity: 0.6 });
+const platRing = new THREE.Mesh(platRingGeo, platRingMat);
+platRing.rotation.x = -Math.PI / 2;
+platRing.position.y = 0.155;
+scene.add(platRing);
+
+// Floating orbs / bokeh
+const orbGroup = new THREE.Group();
+scene.add(orbGroup);
+for (let i = 0; i < 30; i++) {
+  const r = 0.04 + Math.random() * 0.12;
+  const orbGeo = new THREE.SphereGeometry(r, 6, 6);
+  const col = accentColors[Math.floor(Math.random() * accentColors.length)];
+  const orbMat = new THREE.MeshStandardMaterial({ color: col, emissive: col, emissiveIntensity: 0.8, transparent: true, opacity: 0.6 });
+  const orb = new THREE.Mesh(orbGeo, orbMat);
+  orb.position.set(
+    (Math.random() - 0.5) * 30,
+    1 + Math.random() * 6,
+    (Math.random() - 0.5) * 30
+  );
+  orb.userData = { baseY: orb.position.y, speed: 0.3 + Math.random() * 0.7, phase: Math.random() * Math.PI * 2 };
+  orbGroup.add(orb);
+}
+
+// Film reel decorative arches
+for (let i = 0; i < 5; i++) {
+  const angle = (i / 5) * Math.PI * 2 + Math.PI / 10;
+  const dist = 7.5;
+  const archGroup = new THREE.Group();
+  archGroup.position.set(Math.cos(angle) * dist, 0, Math.sin(angle) * dist);
+  archGroup.rotation.y = -angle;
+
+  const pillarGeo = new THREE.BoxGeometry(0.12, 5, 0.12);
+  const pillarMat = new THREE.MeshStandardMaterial({ color: 0x1a1a2e, roughness: 0.6 });
+  [-0.6, 0.6].forEach(x => {
+    const p = new THREE.Mesh(pillarGeo, pillarMat);
+    p.position.set(x, 2.5, 0);
+    p.castShadow = true;
+    archGroup.add(p);
+  });
+
+  const beamGeo = new THREE.BoxGeometry(1.32, 0.12, 0.12);
+  const beam = new THREE.Mesh(beamGeo, new THREE.MeshStandardMaterial({ color: accentColors[i], emissive: accentColors[i], emissiveIntensity: 0.4 }));
+  beam.position.set(0, 5, 0);
+  archGroup.add(beam);
+
+  scene.add(archGroup);
+}
+
+// ─────────────────────────────────────────────
+//  PARTICLES
+// ─────────────────────────────────────────────
+const particleCount = 600;
+const particlePositions = new Float32Array(particleCount * 3);
+for (let i = 0; i < particleCount; i++) {
+  particlePositions[i * 3]     = (Math.random() - 0.5) * 50;
+  particlePositions[i * 3 + 1] = Math.random() * 12;
+  particlePositions[i * 3 + 2] = (Math.random() - 0.5) * 50;
+}
+const particleGeo = new THREE.BufferGeometry();
+particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+const particleMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.04, transparent: true, opacity: 0.35, sizeAttenuation: true });
+scene.add(new THREE.Points(particleGeo, particleMat));
+
+// ─────────────────────────────────────────────
+//  ORBIT CONTROLS (manual implementation)
+// ─────────────────────────────────────────────
+const orbit = {
+  target: new THREE.Vector3(0, 1.5, 0),
+  spherical: new THREE.Spherical(18, Math.PI / 3.5, 0),
+  isDragging: false,
+  isRightDragging: false,
+  lastX: 0, lastY: 0,
+  minDist: 5, maxDist: 40,
+  minPhi: 0.2, maxPhi: Math.PI / 2.1
+};
+
+function updateCamera() {
+  const { spherical, target } = orbit;
+  camera.position.setFromSpherical(spherical).add(target);
+  camera.lookAt(target);
+}
+
+renderer.domElement.addEventListener('mousedown', e => {
+  if (e.button === 2) { orbit.isRightDragging = true; }
+  else { orbit.isDragging = true; }
+  orbit.lastX = e.clientX; orbit.lastY = e.clientY;
+});
+renderer.domElement.addEventListener('mousemove', e => {
+  const dx = e.clientX - orbit.lastX;
+  const dy = e.clientY - orbit.lastY;
+  orbit.lastX = e.clientX; orbit.lastY = e.clientY;
+  if (orbit.isDragging) {
+    orbit.spherical.theta -= dx * 0.008;
+    orbit.spherical.phi = Math.max(orbit.minPhi, Math.min(orbit.maxPhi, orbit.spherical.phi + dy * 0.008));
+  }
+  if (orbit.isRightDragging) {
+    const right = new THREE.Vector3();
+    const up = new THREE.Vector3();
+    camera.getWorldDirection(right);
+    right.cross(camera.up).normalize();
+    up.copy(camera.up).normalize();
+    orbit.target.addScaledVector(right, -dx * 0.02);
+    orbit.target.addScaledVector(up, dy * 0.02);
+  }
+  updateCamera();
+});
+window.addEventListener('mouseup', () => { orbit.isDragging = false; orbit.isRightDragging = false; });
+renderer.domElement.addEventListener('wheel', e => {
+  orbit.spherical.radius = Math.max(orbit.minDist, Math.min(orbit.maxDist, orbit.spherical.radius + e.deltaY * 0.04));
+  updateCamera();
+});
+renderer.domElement.addEventListener('contextmenu', e => e.preventDefault());
+
+// Touch
+let touches = [];
+renderer.domElement.addEventListener('touchstart', e => { touches = Array.from(e.touches); orbit.isDragging = true; });
+renderer.domElement.addEventListener('touchmove', e => {
+  if (touches.length === 1 && e.touches.length === 1) {
+    const dx = e.touches[0].clientX - touches[0].clientX;
+    const dy = e.touches[0].clientY - touches[0].clientY;
+    orbit.spherical.theta -= dx * 0.01;
+    orbit.spherical.phi = Math.max(orbit.minPhi, Math.min(orbit.maxPhi, orbit.spherical.phi + dy * 0.01));
+    updateCamera();
+  }
+  if (touches.length === 2 && e.touches.length === 2) {
+    const prev = Math.hypot(touches[0].clientX - touches[1].clientX, touches[0].clientY - touches[1].clientY);
+    const curr = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+    orbit.spherical.radius = Math.max(orbit.minDist, Math.min(orbit.maxDist, orbit.spherical.radius - (curr - prev) * 0.05));
+    updateCamera();
+  }
+  touches = Array.from(e.touches);
+});
+window.addEventListener('touchend', () => { orbit.isDragging = false; touches = []; });
+
+// ─────────────────────────────────────────────
+//  ZONE CAMERA POSITIONS
+// ─────────────────────────────────────────────
+const zones = [
+  { target: new THREE.Vector3(0, 1.5, 0), theta: 0, phi: 1.1, radius: 18, label: 'All Work' },
+  { target: new THREE.Vector3(-5, 2, 2), theta: -0.4, phi: 1.1, radius: 8, label: 'Kusa no Umi' },
+  { target: new THREE.Vector3(5, 2, 2), theta: 0.4, phi: 1.1, radius: 8, label: 'Silence/Noise' },
+  { target: new THREE.Vector3(-12, 2, -5), theta: -0.9, phi: 1.1, radius: 9, label: 'Neon Tides' },
+  { target: new THREE.Vector3(0, 2, -14), theta: Math.PI, phi: 1.1, radius: 9, label: 'Loop Eternal' },
+];
+let currentZone = 0;
+let flyingTo = null;
+let flyT = 1;
+
+const zoneDots = document.querySelectorAll('.zone-dot');
+
+function flyToZone(idx) {
+  if (idx >= zones.length) return;
+  currentZone = idx;
+  flyingTo = zones[idx];
+  flyT = 0;
+  zoneDots.forEach((d, i) => d.classList.toggle('active', i === idx));
+  document.querySelectorAll('#nav-links a').forEach((a, i) => a.classList.toggle('active', i === idx));
+  updateHeroText(idx);
+}
+
+function updateHeroText(idx) {
+  const heroH = document.querySelector('#hero-text h1');
+  const heroP = document.querySelector('#hero-text p');
+  const z = zones[idx];
+  if (idx === 0) {
+    heroH.innerHTML = 'Debut<br><em>Director</em>';
+    heroP.textContent = 'Moving Image · Visual Storytelling · 2026';
+  } else {
+    const proj = PROJECTS[idx - 1];
+    heroH.innerHTML = proj.title.replace(/(\s)/, '<br><em>') + '</em>';
+    heroP.textContent = proj.tag + ' · ' + proj.year + ' · ' + proj.format;
+  }
+}
+
+window.flyToZone = flyToZone;
+
+// Keyboard nav
+window.addEventListener('keydown', e => {
+  const num = parseInt(e.key);
+  if (num >= 1 && num <= 5) flyToZone(num - 1);
+});
+
+// ─────────────────────────────────────────────
+//  CHARACTER ANIMATION
+// ─────────────────────────────────────────────
+let animState = 'idle';
+let animT = 0;
+let customAnim = null;
+
+function triggerAnim(type) {
+  customAnim = { type, t: 0 };
+}
+window.triggerAnim = triggerAnim;
+
+function updateCharacter(time) {
+  if (customAnim) {
+    const ca = customAnim;
+    ca.t += 0.025;
+
+    if (ca.type === 'wave') {
+      // Wave right arm
+      const a = Math.sin(ca.t * 4) * 0.5;
+      armPivotR.rotation.z = -0.3 + a;
+      armPivotR.rotation.x = -0.8;
+      bodyParts.armR.elbowPivot.rotation.z = 0.3;
+    } else if (ca.type === 'point') {
+      // Point forward
+      armPivotR.rotation.x = -1.2;
+      armPivotR.rotation.z = 0;
+      bodyParts.armR.elbowPivot.rotation.x = 0.4;
+      bodyParts.head.rotation.x = -0.1;
+    } else if (ca.type === 'bow') {
+      const bow = Math.min(ca.t * 2, Math.PI * 0.7) * (ca.t < Math.PI ? 1 : Math.max(0, 2 - ca.t / Math.PI));
+      bodyParts.torso.rotation.x = Math.sin(ca.t * 0.8) * 0.4;
+      bodyParts.head.rotation.x = Math.sin(ca.t * 0.8) * 0.3;
+    }
+
+    if (ca.t > Math.PI * 2) customAnim = null;
+    return;
+  }
+
+  // Idle breath
+  const breath = Math.sin(time * 0.8) * 0.02;
+  bodyParts.torso.position.y = 1.65 + breath;
+  bodyParts.head.position.y = 2.38 + breath * 1.5;
+  bodyParts.neck.position.y = 2.14 + breath;
+
+  // Idle head sway
+  bodyParts.head.rotation.y = Math.sin(time * 0.4) * 0.08;
+  bodyParts.head.rotation.x = Math.sin(time * 0.3) * 0.04;
+
+  // Arms relaxed swing
+  armPivotL.rotation.x = Math.sin(time * 0.8) * 0.08;
+  armPivotR.rotation.x = Math.sin(time * 0.8 + Math.PI) * 0.08;
+  armPivotL.rotation.z = 0.06; armPivotR.rotation.z = -0.06;
+  bodyParts.armL.elbowPivot.rotation.x = 0.05;
+  bodyParts.armR.elbowPivot.rotation.x = 0.05;
+
+  // Leg subtle shift
+  bodyParts.legL.pivot.rotation.x = Math.sin(time * 0.4) * 0.03;
+  bodyParts.legR.pivot.rotation.x = Math.sin(time * 0.4 + 0.5) * 0.03;
+}
+
+// ─────────────────────────────────────────────
+//  RAYCASTER (click panels)
+// ─────────────────────────────────────────────
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+
+renderer.domElement.addEventListener('click', e => {
+  mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+  raycaster.setFromCamera(mouse, camera);
+
+  const meshes = panels.map(p => p.screen);
+  const hits = raycaster.intersectObjects(meshes);
+  if (hits.length) {
+    const hitGroup = hits[0].object.parent;
+    const proj = hitGroup.userData.proj;
+    if (proj) openProj(proj);
+  }
+});
+
+// ─────────────────────────────────────────────
+//  MODALS
+// ─────────────────────────────────────────────
+function openAbout() { document.getElementById('about-modal').classList.add('open'); }
+function closeAbout() { document.getElementById('about-modal').classList.remove('open'); }
+function openProj(proj) {
+  const img = document.getElementById('pm-image');
+  document.getElementById('pm-tag').textContent = proj.tag;
+  document.getElementById('pm-title').textContent = proj.title;
+  document.getElementById('pm-desc').textContent = proj.desc;
+  document.getElementById('pm-year').textContent = proj.year;
+  document.getElementById('pm-role').textContent = proj.role;
+  document.getElementById('pm-format').textContent = proj.format;
+  if (proj.image) {
+    img.src = proj.image;
+    img.alt = proj.title;
+    img.hidden = false;
+  } else {
+    img.hidden = true;
+  }
+  document.getElementById('proj-modal').classList.add('open');
+}
+function closeProj() { document.getElementById('proj-modal').classList.remove('open'); }
+window.openAbout = openAbout; window.closeAbout = closeAbout; window.closeProj = closeProj;
+document.getElementById('about-modal').addEventListener('click', e => { if (e.target === document.getElementById('about-modal')) closeAbout(); });
+document.getElementById('proj-modal').addEventListener('click', e => { if (e.target === document.getElementById('proj-modal')) closeProj(); });
+
+// ─────────────────────────────────────────────
+//  RENDER LOOP
+// ─────────────────────────────────────────────
+let time = 0;
+const clock = new THREE.Clock();
+
+// Camera flight interpolation helpers
+function lerpSph(a, b, t) {
+  return {
+    theta: a.theta + (b.theta - a.theta) * t,
+    phi: a.phi + (b.phi - a.phi) * t,
+    radius: a.radius + (b.radius - a.radius) * t
+  };
+}
+const currentSph = { theta: orbit.spherical.theta, phi: orbit.spherical.phi, radius: orbit.spherical.radius };
+
+function easeInOut(t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
+
+let heroInView = true;
+
+function render() {
+  requestAnimationFrame(render);
+  const delta = clock.getDelta();
+  time += delta;
+
+  if (!heroInView) return;
+
+  // Camera fly
+  if (flyingTo && flyT < 1) {
+    flyT = Math.min(1, flyT + delta * 0.9);
+    const e = easeInOut(flyT);
+    orbit.spherical.theta = currentSph.theta + (flyingTo.theta - currentSph.theta) * e;
+    orbit.spherical.phi = currentSph.phi + (flyingTo.phi - currentSph.phi) * e;
+    orbit.spherical.radius = currentSph.radius + (flyingTo.radius - currentSph.radius) * e;
+    orbit.target.lerp(flyingTo.target, e * 0.08);
+    updateCamera();
+    if (flyT >= 1) {
+      currentSph.theta = orbit.spherical.theta;
+      currentSph.phi = orbit.spherical.phi;
+      currentSph.radius = orbit.spherical.radius;
+      flyingTo = null;
+    }
+  }
+
+  // Orbs float
+  orbGroup.children.forEach(orb => {
+    orb.position.y = orb.userData.baseY + Math.sin(time * orb.userData.speed + orb.userData.phase) * 0.4;
+    orb.rotation.y += delta * 0.5;
+  });
+
+  // Platform ring pulse
+  platRing.material.emissiveIntensity = 0.3 + Math.sin(time * 1.5) * 0.2;
+
+  // Panel screen rings
+  panels.forEach((p, i) => {
+    p.ring.rotation.y += delta * (0.5 + i * 0.1);
+    p.ring.position.y = 1.85 + Math.sin(time * 0.8 + i) * 0.04;
+  });
+
+  // Accent lights orbit
+  accentLights.forEach((l, i) => {
+    const angle = (i / accentColors.length) * Math.PI * 2 + time * 0.15;
+    l.position.x = Math.cos(angle) * 14;
+    l.position.z = Math.sin(angle) * 14;
+    l.intensity = 0.8 + Math.sin(time * 0.6 + i) * 0.4;
+  });
+
+  // Character
+  updateCharacter(time);
+
+  // Character gently rotates toward camera
+  const camDir = new THREE.Vector3();
+  camera.getWorldDirection(camDir);
+  const targetAngle = Math.atan2(-camDir.x, -camDir.z);
+  charGroup.rotation.y += (targetAngle - charGroup.rotation.y) * 0.02;
+
+  // Char panel visibility (show near default view)
+  const charPanel = document.getElementById('char-panel');
+  if (orbit.spherical.radius < 12) { charPanel.classList.add('visible'); }
+  else { charPanel.classList.remove('visible'); }
+
+  renderer.render(scene, camera);
+}
+
+// ─────────────────────────────────────────────
+//  RESIZE
+// ─────────────────────────────────────────────
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// ─────────────────────────────────────────────
+//  LOADER
+// ─────────────────────────────────────────────
+const fill = document.getElementById('loader-fill');
+let loadPct = 0;
+const loadInterval = setInterval(() => {
+  loadPct += Math.random() * 18;
+  if (loadPct >= 100) { loadPct = 100; clearInterval(loadInterval); }
+  fill.style.width = loadPct + '%';
+  if (loadPct === 100) {
+    setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 400);
+  }
+}, 80);
+
+// ─────────────────────────────────────────────
+//  LANDING PAGE
+// ─────────────────────────────────────────────
+function hexColor(n) {
+  return '#' + n.toString(16).padStart(6, '0');
+}
+
+function buildWorkGrid() {
+  const grid = document.getElementById('work-grid');
+  if (!grid) return;
+  PROJECTS.forEach((proj, i) => {
+    const accent = hexColor(proj.color);
+    const card = document.createElement('div');
+    card.className = 'work-card-3d';
+    card.innerHTML = `
+      <div class="work-card-inner" role="button" tabindex="0" aria-label="View ${proj.title}">
+        <div class="work-card-depth" style="background-image: url('${proj.image}')"></div>
+        <div class="work-card-front" style="--accent: ${accent}">
+          <img class="work-card-media" src="${proj.image}" alt="${proj.title}" loading="lazy">
+          <div class="work-card-overlay"></div>
+          <div class="work-card-glow"></div>
+          <span class="wc-tag">${proj.tag}</span>
+          <h3>${proj.title}</h3>
+          <p>${proj.desc.slice(0, 90)}…</p>
+          <span class="wc-year">${proj.year} · ${proj.format}</span>
+        </div>
+      </div>`;
+    const inner = card.querySelector('.work-card-inner');
+    inner.addEventListener('click', () => openProj(proj));
+    inner.addEventListener('keydown', e => { if (e.key === 'Enter') openProj(proj); });
+    grid.appendChild(card);
+  });
+}
+buildWorkGrid();
+
+function handleContactSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.submit-btn');
+  const prev = btn.textContent;
+  btn.textContent = 'Sent — thank you';
+  btn.style.borderColor = '#e8ff47';
+  btn.style.color = '#e8ff47';
+  setTimeout(() => {
+    btn.textContent = prev;
+    btn.style.borderColor = '';
+    btn.style.color = '';
+    e.target.reset();
+  }, 2800);
+  return false;
+}
+window.handleContactSubmit = handleContactSubmit;
+
+// Nav scroll state
+const navEl = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  navEl.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// Reveal on scroll
+document.querySelectorAll('.reveal').forEach(el => {
+  new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }).observe(el);
+});
+
+// Pause 3D render when hero is off-screen
+new IntersectionObserver(entries => {
+  heroInView = entries[0].isIntersecting;
+}, { threshold: 0.05 }).observe(document.getElementById('hero'));
+
+// Allow page scroll from hero when fully zoomed out
+renderer.domElement.addEventListener('wheel', e => {
+  if (window.scrollY < 10 && orbit.spherical.radius >= orbit.maxDist - 2 && e.deltaY > 0) {
+    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+  }
+}, { passive: true });
+
+// Kick off
+updateCamera();
+render();
+</script>
+</body>
+</html>
